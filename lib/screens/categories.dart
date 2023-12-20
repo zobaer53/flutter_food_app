@@ -1,19 +1,20 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_management/dummy/dummy_data.dart';
 import 'package:meal_management/screens/meals.dart';
 import 'package:meal_management/widget/category_grid_item.dart';
 
+import '../model/category.dart';
+
 class Categories extends StatelessWidget{
   const Categories({super.key});
 
-  // navigation
-  void _selectCategory(BuildContext context){
-    Navigator.push(context,MaterialPageRoute(builder: (ctx) => Meals(meals: [], title: 'title'))); //keeps screen in backstack
+  // navigation with the selected item
+  void _selectCategory(BuildContext context, Category category){
+    final filteredMeals = dummyMeals.where((meal) => meal.categories.contains(category.id)).toList();
+    Navigator.push(context,MaterialPageRoute(builder: (ctx) => Meals(meals: filteredMeals, title: category.title))); //keeps screen in backstack
     /*Navigator.pushNamed(context, )*/
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class Categories extends StatelessWidget{
           //get categories from the dummy data with getter method
           for(final category in availableCategories) // alternative availableCategories.map((category) => CategoryGridItem(category: category)).toList()
             CategoryGridItem(category: category,setCategory: (){
-              _selectCategory(context);
+              _selectCategory(context,category);
             },),
       ],
       ),
