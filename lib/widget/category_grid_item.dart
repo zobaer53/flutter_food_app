@@ -4,10 +4,11 @@ import 'package:meal_management/model/category.dart';
 
 //show the items in the category grid
 class CategoryGridItem extends StatelessWidget {
-  const CategoryGridItem({super.key, required this.category});
+  const CategoryGridItem({super.key, required this.category, required this.setCategory});
 
   //need external data to show the category information
   final Category category;
+  final Function setCategory;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class CategoryGridItem extends StatelessWidget {
  * */
     return InkWell(
       onTap: (){
-
+        setCategory();
       },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),

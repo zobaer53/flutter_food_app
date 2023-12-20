@@ -2,10 +2,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_management/dummy/dummy_data.dart';
+import 'package:meal_management/screens/meals.dart';
 import 'package:meal_management/widget/category_grid_item.dart';
 
 class Categories extends StatelessWidget{
   const Categories({super.key});
+
+  // navigation
+  void _selectCategory(BuildContext context){
+    Navigator.push(context,MaterialPageRoute(builder: (ctx) => Meals(meals: [], title: 'title'))); //keeps screen in backstack
+    /*Navigator.pushNamed(context, )*/
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -19,19 +27,20 @@ class Categories extends StatelessWidget{
 
        */
       body: GridView(
-        padding: EdgeInsets.all(24),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        padding: const EdgeInsets.all(24),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, //controls the layout of gridView,
             childAspectRatio:  3/2,//set num if row col of the grid
-            crossAxisSpacing: 20, //space between item horizontallu
+            crossAxisSpacing: 20, //space between item horizontally
             mainAxisSpacing: 20 // space between item vertically
         ),
         children: [
 
           //get categories from the dummy data with getter method
-
           for(final category in availableCategories) // alternative availableCategories.map((category) => CategoryGridItem(category: category)).toList()
-            CategoryGridItem(category: category),
+            CategoryGridItem(category: category,setCategory: (){
+              _selectCategory(context);
+            },),
       ],
       ),
     );
