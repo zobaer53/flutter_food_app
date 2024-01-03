@@ -37,8 +37,11 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^6.1.0
   transparent_image: ^2.0.1
+<<<<<<< HEAD
   fluttertoast: ^8.0.8
 
+=======
+>>>>>>> 9c5e49612955215589a4893130bd4d22121e50b1
 
 dev_dependencies:
   flutter_test:
