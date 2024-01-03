@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:meal_management/model/category.dart';
 
@@ -12,7 +11,8 @@ class CategoryGridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- /*   // making a widget tappable or GestureDetector can also be used
+
+ /* making a widget tappable or GestureDetector can also be used
  * inkwell gives visual feed back
  * */
     return InkWell(

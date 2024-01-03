@@ -1,33 +1,27 @@
 
 import 'package:flutter/material.dart';
 import 'package:meal_management/dummy/dummy_data.dart';
-import 'package:meal_management/screens/meals.dart';
+import 'package:meal_management/screens/meals_screen.dart';
 import 'package:meal_management/widget/category_grid_item.dart';
-
 import '../model/category.dart';
 
-class Categories extends StatelessWidget{
-  const Categories({super.key});
+class CategoriesScreen extends StatelessWidget{
+  const CategoriesScreen({super.key});
 
   // navigation with the selected item
   void _selectCategory(BuildContext context, Category category){
     final filteredMeals = dummyMeals.where((meal) => meal.categories.contains(category.id)).toList();
-    Navigator.push(context,MaterialPageRoute(builder: (ctx) => Meals(meals: filteredMeals, title: category.title))); //keeps screen in backstack
+    Navigator.push(context,MaterialPageRoute(builder: (ctx) => MealsScreen(meals: filteredMeals, title: category.title))); //keeps screen in backstack
     /*Navigator.pushNamed(context, )*/
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Pick your category'),
-      ),
-
-      /*
+    /*
       GridView comes with normal and performance optimized GridView.builder()
 
        */
-      body: GridView(
+    return  GridView(
         padding: const EdgeInsets.all(24),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, //controls the layout of gridView,
@@ -43,7 +37,6 @@ class Categories extends StatelessWidget{
               _selectCategory(context,category);
             },),
       ],
-      ),
-    );
+      );
   }
 }
