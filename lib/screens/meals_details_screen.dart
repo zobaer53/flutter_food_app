@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+/*
+import 'package:fluttertoast/fluttertoast.dart';
+*/
 import 'package:meal_management/main.dart';
 import 'package:meal_management/model/meal.dart';
 
 class MealsDetailsScreen extends StatelessWidget {
-  const MealsDetailsScreen({super.key, required this.meal});
+  const MealsDetailsScreen({super.key, required this.meal, this.addFavouriteMeal});
 
   final Meal meal;
+  final Function? addFavouriteMeal;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,20 @@ class MealsDetailsScreen extends StatelessWidget {
                 ),
                InkWell(
                  onTap: (){
+                   if(addFavouriteMeal != null){
+                     addFavouriteMeal!();
+                   }
 
+                   showToast(
+                     'This is normal',
+                     context: context,
+                     axis: Axis.horizontal,
+                     alignment: Alignment.center,
+                     position: StyledToastPosition.bottom,
+                     borderRadius: BorderRadius.zero,
+                     toastHorizontalMargin: 0,
+                     fullWidth: true,
+                   );
                  },
                  child: Padding(
                    padding: const EdgeInsets.all(8.0),

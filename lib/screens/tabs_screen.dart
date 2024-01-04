@@ -14,11 +14,22 @@ class TabsScreen extends StatefulWidget{
 class _TabsScreenState extends State<TabsScreen>{
 
   int selectedPageIndex = 0;
+  List<String> favouriteList = []; // Initialize favouriteList here
+
+
   void selectPage(int index){
     setState(() {
       selectedPageIndex= index;
     });
   }
+
+  void addFavouriteMeal(String id){
+    favouriteList.add(id);
+  setState(() {
+    print("favlist ids $favouriteList");
+  });
+  }
+
   @override
   Widget build(BuildContext context) {
 
