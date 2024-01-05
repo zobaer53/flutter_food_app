@@ -10,16 +10,19 @@ class MealsScreen extends StatelessWidget {
     super.key,
     required this.meals,
     this.title,
-    this.addFavouriteMeal,
+    required this.addFavouriteMeal,
   });
 
   //needs meals input to show all list
   final List<Meal> meals;
   final String? title;
-  final Function? addFavouriteMeal;
+  final Function(Meal meal) addFavouriteMeal;
 
   void selectedCategoryDetails(BuildContext context, Meal meal) {
-      Navigator.push(context, MaterialPageRoute(builder: (ctx) => MealsDetailsScreen(meal: meal,addFavouriteMeal: addFavouriteMeal,)));
+      Navigator.push(context, MaterialPageRoute(builder: (ctx) => MealsDetailsScreen(meal: meal,addFavouriteMeal: addFavouriteMeal
+        ,)
+      )
+      );
   }
 
   @override
