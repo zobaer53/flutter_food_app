@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-/*
-import 'package:fluttertoast/fluttertoast.dart';
-*/
 import 'package:meal_management/model/meal.dart';
 
 class MealsDetailsScreen extends StatefulWidget {
-   MealsDetailsScreen({super.key, required this.meal, required this.addFavouriteMeal});
+   const MealsDetailsScreen({super.key, required this.meal, required this.addFavouriteMeal});
 
   final Meal meal;
   final Function(Meal meal) addFavouriteMeal;
@@ -50,8 +46,6 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
         child: Column(
           children: [
 
-
-
             Stack(
               children: [
                 Image.network(
@@ -59,8 +53,7 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
                   height: 300,
                   width: double.infinity,
                   fit: BoxFit.cover,
-                ),
-              ],
+                ),],
             ),
             const SizedBox(height: 14,),
             Text('Ingredients', style: Theme
@@ -72,8 +65,7 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
                   .of(context)
                   .colorScheme
                   .primary,
-              fontWeight: FontWeight.bold
-            ),
+              fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 14,),
             for (final ingredient in widget.meal.ingredients) Text(ingredient,style: Theme
@@ -96,8 +88,7 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
                     .of(context)
                     .colorScheme
                     .primary,
-                fontWeight: FontWeight.bold
-            ),
+                fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 14,),
             for (final ingredient in widget.meal.steps)
@@ -115,9 +106,7 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
                     .colorScheme
                     .onBackground,)
             ),
-              ),
-
-          ],
+              ),],
         ),
       ),
     );
