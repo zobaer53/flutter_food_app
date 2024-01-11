@@ -70,7 +70,7 @@ class _TabsScreenState extends State<TabsScreen> {
     var activePageTitle = 'Categories';
 
     if (selectedPageIndex == 1) {
-      activePage = MealsScreen(meals: favouriteList, title: 'Favourites', addFavouriteMeal:  addFavouriteMeal ,);
+      activePage = MealsScreen(meals: favouriteList, addFavouriteMeal:  addFavouriteMeal ,);
       activePageTitle = 'Your Favourites';
     }
 
