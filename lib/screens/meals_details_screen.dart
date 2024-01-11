@@ -22,7 +22,8 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
   @override
   Widget build(BuildContext context) {
 
-    var toastMessage = 'Added To Favourite';
+    var favAddedToastMessage = 'Added To Favourite';
+    var favRemovedToastMessage = 'Removed from favourite';
 
     return Scaffold(
       appBar: AppBar(title: Text(widget.meal.title),actions: [
@@ -31,7 +32,7 @@ class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
           favouriteAdded = !favouriteAdded ;
           widget.addFavouriteMeal(widget.meal);
             showToast(
-              favouriteAdded? toastMessage: 'Removed from favourite',
+              favouriteAdded? favAddedToastMessage: favRemovedToastMessage,
               context: context,
               axis: Axis.horizontal,
               alignment: Alignment.center,
