@@ -84,7 +84,7 @@ class _TabsScreenState extends State<TabsScreen> {
           selectPage(index);
         },
         currentIndex: selectedPageIndex,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.set_meal),
             label: 'Categories',
