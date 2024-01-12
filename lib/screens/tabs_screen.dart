@@ -1,4 +1,3 @@
-
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
@@ -6,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:meal_management/model/meal.dart';
 import 'package:meal_management/screens/categories_screen.dart';
+import 'package:meal_management/screens/filters_screen.dart';
 import 'package:meal_management/screens/meals_screen.dart';
 import 'package:meal_management/widget/main_drawer.dart';
 
@@ -28,57 +28,61 @@ class _TabsScreenState extends State<TabsScreen> {
     });
   }
 
-   void addFavouriteMeal(Meal meal) {
+  void addFavouriteMeal(Meal meal) {
     final isExisting = favouriteList.contains(meal);
     var favAddedToastMessage = 'Added To Favourite';
     var favRemovedToastMessage = 'Removed from favourite';
-   if(isExisting == false){
-     setState(() {
-       favouriteList.add(meal);
-     });
-     showToast(
-       favAddedToastMessage,
-       context: context,
-       axis: Axis.horizontal,
-       alignment: Alignment.center,
-       position: StyledToastPosition.bottom,
-       borderRadius: BorderRadius.zero,
-       toastHorizontalMargin: 0,
-       fullWidth: true,
-     );
-   }else{
-     setState(() {
-       favouriteList.remove(meal);
-     });
-     showToast(
-       favRemovedToastMessage,
-       context: context,
-       axis: Axis.horizontal,
-       alignment: Alignment.center,
-       position: StyledToastPosition.bottom,
-       borderRadius: BorderRadius.zero,
-       toastHorizontalMargin: 0,
-       fullWidth: true,
-     );
-   }
+    if (isExisting == false) {
+      setState(() {
+        favouriteList.add(meal);
+      });
+      showToast(
+        favAddedToastMessage,
+        context: context,
+        axis: Axis.horizontal,
+        alignment: Alignment.center,
+        position: StyledToastPosition.bottom,
+        borderRadius: BorderRadius.zero,
+        toastHorizontalMargin: 0,
+        fullWidth: true,
+      );
+    } else {
+      setState(() {
+        favouriteList.remove(meal);
+      });
+      showToast(
+        favRemovedToastMessage,
+        context: context,
+        axis: Axis.horizontal,
+        alignment: Alignment.center,
+        position: StyledToastPosition.bottom,
+        borderRadius: BorderRadius.zero,
+        toastHorizontalMargin: 0,
+        fullWidth: true,
+      );
+    }
   }
 
   void _setScreen(String identifier) {
-
-    if(identifier == 'filters'){
-
-  }else{
+    if (identifier == 'filters') {
+      Navigator.push(context, MaterialPageRoute(builder: (ctx) => FiltersScreen()));
+    } else {
       Navigator.of(context).pop();
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    Widget activePage =  CategoriesScreen(addFavouriteMeal: addFavouriteMeal,);
+    Widget activePage = CategoriesScreen(
+      addFavouriteMeal: addFavouriteMeal,
+    );
     var activePageTitle = 'Categories';
 
     if (selectedPageIndex == 1) {
-      activePage = MealsScreen(meals: favouriteList, addFavouriteMeal:  addFavouriteMeal ,);
+      activePage = MealsScreen(
+        meals: favouriteList,
+        addFavouriteMeal: addFavouriteMeal,
+      );
       activePageTitle = 'Your Favourites';
     }
 
@@ -86,7 +90,9 @@ class _TabsScreenState extends State<TabsScreen> {
       appBar: AppBar(
         title: Text(activePageTitle),
       ),
-      drawer: MainDrawer(onSelectScreen: _setScreen,),
+      drawer: MainDrawer(
+        onSelectScreen: _setScreen,
+      ),
       body: activePage,
       bottomNavigationBar: BottomNavigationBar(
         onTap: (index) {
