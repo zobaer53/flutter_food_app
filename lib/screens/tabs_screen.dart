@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:meal_management/model/meal.dart';
@@ -63,10 +62,11 @@ class _TabsScreenState extends State<TabsScreen> {
     }
   }
 
-  void _setScreen(String identifier) {
+  Future<void> _setScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'filters') {
-      Navigator.push(context, MaterialPageRoute(builder: (ctx) => FiltersScreen()));
+      final result = await Navigator.push<Map<Filter,bool>>(context, MaterialPageRoute(builder: (ctx) => FiltersScreen()));
+      log('result $result');
     }
   }
 
