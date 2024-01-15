@@ -3,10 +3,9 @@ import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:meal_management/model/meal.dart';
 
 class MealsDetailsScreen extends StatefulWidget {
-   const MealsDetailsScreen({super.key, required this.meal, required this.addFavouriteMeal});
+   const MealsDetailsScreen({super.key, required this.meal});
 
   final Meal meal;
-  final Function(Meal meal) addFavouriteMeal;
 
   @override
   State<MealsDetailsScreen> createState() => _MealsDetailsScreenState();

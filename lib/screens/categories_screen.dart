@@ -7,9 +7,8 @@ import '../model/category.dart';
 import '../model/meal.dart';
 
 class CategoriesScreen extends StatelessWidget{
-  const CategoriesScreen({super.key, required this.addFavouriteMeal, required this.availableMeal});
+  const CategoriesScreen({super.key, required this.availableMeal});
 
-  final  Function(Meal meal) addFavouriteMeal;
   final  List<Meal> availableMeal;
 
   // navigation with the selected item

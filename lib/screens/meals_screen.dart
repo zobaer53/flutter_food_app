@@ -9,17 +9,15 @@ class MealsScreen extends StatelessWidget {
   const MealsScreen({
     super.key,
     required this.meals,
-    this.title,
-    required this.addFavouriteMeal,
+    this.title
   });
 
   //needs meals input to show all list
   final List<Meal> meals;
   final String? title;
-  final Function(Meal meal) addFavouriteMeal;
 
   void selectedCategoryDetails(BuildContext context, Meal meal) {
-      Navigator.push(context, MaterialPageRoute(builder: (ctx) => MealsDetailsScreen(meal: meal,addFavouriteMeal: addFavouriteMeal
+      Navigator.push(context, MaterialPageRoute(builder: (ctx) => MealsDetailsScreen(meal: meal
         ,)
       )
       );
