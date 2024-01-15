@@ -1,33 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:meal_management/model/meal.dart';
+import 'package:meal_management/provider/favourites_provider.dart';
 
-class MealsDetailsScreen extends StatefulWidget {
+class MealsDetailsScreen extends ConsumerStatefulWidget {
    const MealsDetailsScreen({super.key, required this.meal});
 
   final Meal meal;
 
   @override
-  State<MealsDetailsScreen> createState() => _MealsDetailsScreenState();
+  ConsumerState<MealsDetailsScreen> createState() => _MealsDetailsScreenState();
 }
 
-class _MealsDetailsScreenState extends State<MealsDetailsScreen> {
-   bool favouriteAdded = false;
+class _MealsDetailsScreenState extends ConsumerState<MealsDetailsScreen> {
+
 
   @override
   Widget build(BuildContext context) {
-
+    var favListProvider = ref.read(favouriteMealsProvider.notifier); // use read when accessing for click event
+    bool wasAdded = false;
     return Scaffold(
       appBar: AppBar(title: Text(widget.meal.title),actions: [
 
         IconButton(onPressed: (){
-          favouriteAdded = !favouriteAdded ;
-          widget.addFavouriteMeal(widget.meal);
-
-            setState(() {
-
-            });
-        }, icon:favouriteAdded?const Icon(Icons.star,color: Colors.yellow,):const Icon(Icons.star))],
+          wasAdded = favListProvider.toggleMealFavouriteStatus(widget.meal);
+          showToast(
+            wasAdded?"Added to fav" :"Removed from fav",
+            context: context,
+            axis: Axis.horizontal,
+            alignment: Alignment.center,
+            position: StyledToastPosition.bottom,
+            borderRadius: BorderRadius.zero,
+            toastHorizontalMargin: 0,
+            fullWidth: true,
+          );
+        }, icon:wasAdded?const Icon(Icons.star,color: Colors.yellow,):const Icon(Icons.star))],
     ),
       body: SingleChildScrollView(
         child: Column(

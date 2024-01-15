@@ -13,12 +13,14 @@ class FavouriteMealsNotifier extends StateNotifier<List<Meal>>{
   * you need to reinitialize
   * so .add() or .remove() is not allowed here
   * */
-  void toggleMealFavouriteStatus(Meal meal){
+  bool toggleMealFavouriteStatus(Meal meal){
    final mealIsFavourite = state.contains(meal);
    if(mealIsFavourite){
      state = state.where((element) => element.id != meal.id).toList();
+     return false;
    }else{
      state = [...state,meal]; //add existing and add new
+     return true;
    }
   }
 }

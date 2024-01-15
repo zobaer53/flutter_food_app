@@ -14,7 +14,7 @@ class CategoriesScreen extends StatelessWidget{
   // navigation with the selected item
   void _selectCategory(BuildContext context, Category category){
     final filteredMeals = availableMeal.where((meal) => meal.categories.contains(category.id)).toList();
-    Navigator.push(context,MaterialPageRoute(builder: (ctx) => MealsScreen(meals: filteredMeals, title: category.title, addFavouriteMeal: addFavouriteMeal,))); //keeps screen in backstack
+    Navigator.push(context,MaterialPageRoute(builder: (ctx) => MealsScreen(meals: filteredMeals, title: category.title))); //keeps screen in backstack
     /*Navigator.pushNamed(context, )*/
   }
 
