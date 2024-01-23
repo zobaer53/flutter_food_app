@@ -1,6 +1,24 @@
-# meal_management
+![Meal Management](https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/food-app-thumbnail.png)
 
 A new Flutter project.
+
+# Screens
+
+<table width="100%">
+  <tbody>
+    <tr>
+      <td width="1%"><img src="https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/1.png"/></td>
+      <td width="1%"><img src="https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/2.png"/></td>
+       <td width="1%"><img src="https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/3.png"/></td>
+    </tr>
+     <tr>
+      <td width="1%"><img src="https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/4.png"/></td>
+      <td width="1%"><img src="https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/5.png"/></td>
+      <td width="1%"><img src="https://github.com/zobaer53/flutter_food_app/blob/master/FlutterFoodApp/6.png"/></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ## Getting Started
 
