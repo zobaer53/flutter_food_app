@@ -14,13 +14,12 @@ final theme = ThemeData(
 
 void main() {
   runApp(
-
     /*
     wrap with providerScope
     to unlock sate management fun
     of riverpod
     * */
-      ProviderScope(
+      const ProviderScope(
       child: App()));
 }
 
