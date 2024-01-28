@@ -38,8 +38,12 @@ dependencies:
   transparent_image: ^2.0.1
   flutter_styled_toast: ^2.2.1
   flutter_riverpod: ^2.4.9
+<<<<<<< HEAD
   get: ^4.6.6
 
+=======
+  animated_bottom_navigation_bar: ^1.3.2
+>>>>>>> 377315c0c5b7732c46a22f5e0ade2fe74849c5ae
   #fluttertoast: ^8.0.6
 
 
