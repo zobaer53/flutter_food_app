@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:meal_management/provider/favourites_provider.dart';
 import 'package:meal_management/provider/meals_provider.dart';
 import 'package:meal_management/screens/categories_screen.dart';
@@ -40,6 +41,7 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
     Navigator.of(context).pop();
     if (identifier == 'filters') {
         Navigator.push<Map<Filter, bool>>(context, MaterialPageRoute(builder: (ctx) => FiltersScreen()));
+        //Get.toNamed('')
     }
   }
 

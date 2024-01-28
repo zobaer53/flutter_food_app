@@ -38,6 +38,8 @@ dependencies:
   transparent_image: ^2.0.1
   flutter_styled_toast: ^2.2.1
   flutter_riverpod: ^2.4.9
+  get: ^4.6.6
+
   #fluttertoast: ^8.0.6
 
 

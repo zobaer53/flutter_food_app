@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meal_management/screens/categories_screen.dart';
 import 'package:meal_management/screens/tabs_screen.dart';
 
 final theme = ThemeData(
@@ -28,7 +30,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, theme: theme, home: const TabsScreen() //  call the categories screen
+    return GetMaterialApp(
+        initialRoute: "tabsScreen",
+        getPages: [
+          GetPage(name: 'tabsScreen', page: () => TabsScreen()),
+          GetPage(name: 'categoriesScreen', page: () => CategoriesScreen(availableMeal: availableMeal)),
+          GetPage(name: 'mealsDetailsScreen', page: () => TabsScreen()),
+          GetPage(name: 'filterScreen', page: () => TabsScreen()),
+        ],
+        debugShowCheckedModeBanner: false, theme: theme, home: const TabsScreen() //  call the categories screen
         );
   }
 }
